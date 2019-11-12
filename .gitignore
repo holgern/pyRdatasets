@@ -1,0 +1,40 @@
+*.py[co]
+*.pyd
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+# Editors
+.idea
+.project
+.pydevproject
+.settings
+.wpr
+*.wpu
+*.wpr
+.pypirc
+
+# Project working files
+_edflib.[ch]
+_pyedflib.[ch]
+
+edf.[ch]
+cythonize.dat
+pyedflib/__config__.py
+pyedflib/version.py
+build.log
+
+# Generated test files
+pyedflib/tests/data/tmp_*
