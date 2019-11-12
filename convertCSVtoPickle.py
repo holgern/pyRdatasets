@@ -18,4 +18,6 @@ if __name__ == '__main__':
         directory = os.path.join(data_out_dir, "%s" % (row["Package"]))
         if not os.path.exists(directory):
             os.makedirs(directory)
+        if "Unnamed:" in dataset.columns[0]:
+            dataset = dataset.drop(dataset.columns[0], axis=1)
         dataset.to_pickle(os.path.join(directory, "%s.pkl.compress" % (row["Item"])), compression="gzip")
