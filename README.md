@@ -3,6 +3,8 @@ pyRdatasets is a collection of 1300 datasets taken from https://github.com/vince
 The datasets were extracted from various R packages and stored as gzip packed pickle files in pandas DataFrame structure.
 A description to each dataset can be found here: http://vincentarelbundock.github.io/Rdatasets/datasets.html
 
+The package has a size around 25 Mb.
+
 ## Installation
 ```
 pip install rdatasets
@@ -11,7 +13,7 @@ pip install rdatasets
 ## Usage
 
 ```
->>> from Rdatasets import data
+>>> from rdatasets import data
 >>> dataset = data("iris")
 >>> dataset
      Sepal.Length  Sepal.Width  Petal.Length  Petal.Width    Species
@@ -48,7 +50,16 @@ Which item did you mean: ['gas', 'gold', 'taylor', 'wineind', 'woolyrnq']?
 [476 rows x 2 columns]
 ```
 
-
+The dataset description can be printed by:
+```
+from rdatasets import data, descr
+print(descr("iris"))
+```
+A summary of all datasets is available as DataFrame object:
+```
+from rdatasets import summary
+summary()
+```
 
 ## Thanks to 
 The archive of datasets distributed with R: of https://github.com/vincentarelbundock/Rdatasets

@@ -50,11 +50,11 @@ def get_version_info():
     FULLVERSION = VERSION
     if os.path.exists('.git'):
         GIT_REVISION = git_version()
-    elif os.path.exists('Rdatasets/version.py'):
+    elif os.path.exists('rdatasets/version.py'):
         # must be a source distribution, use existing version file
         # load it as a separate module to not load pywt/__init__.py
         import imp
-        version = imp.load_source('Rdatasets.version', 'Rdatasets/version.py')
+        version = imp.load_source('rdatasets.version', 'rdatasets/version.py')
         GIT_REVISION = version.git_revision
     else:
         GIT_REVISION = "Unknown"
@@ -65,9 +65,9 @@ def get_version_info():
     return FULLVERSION, GIT_REVISION
 
 
-def write_version_py(filename='Rdatasets/version.py'):
+def write_version_py(filename='rdatasets/version.py'):
     cnt = """
-# THIS FILE IS GENERATED FROM Rdatasets SETUP.PY
+# THIS FILE IS GENERATED FROM rdatasets SETUP.PY
 short_version = '%(version)s'
 version = '%(version)s'
 full_version = '%(full_version)s'
@@ -92,14 +92,14 @@ if __name__ == '__main__':
     write_version_py()
             
     setup(
-        name="Rdatasets",
+        name="pyRdatasets",
         maintainer="Holger Nahrstaedt",
         maintainer_email="holger@nahrstaedt.de",
         url="https://github.com/holgern/pyRdatasets",
         license="GPL3",
         description="package that provides over 1000 datasets from various R packages",
         long_description=open('README.md').read(),
-        keywords=["Rdatasets", "datasets"],
+        keywords=["rdatasets", "datasets"],
         classifiers=[
             "Development Status :: 4 - Beta",
             "Intended Audience :: Developers",
@@ -117,8 +117,8 @@ if __name__ == '__main__':
         ],
         platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
         version=get_version_info()[0],
-        packages=['Rdatasets','Rdatasets._data'],
-        package_data={'Rdatasets._data': ['*/*.pkl.compress']},
+        packages=['rdatasets','rdatasets._data'],
+        package_data={'rdatasets._data': ['*/*.pkl.compress', '*.pkl.compress', '*.pickle']},
         install_requires=["pandas"],
     )
 

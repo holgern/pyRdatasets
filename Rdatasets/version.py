@@ -1,5 +1,5 @@
 
-# THIS FILE IS GENERATED FROM Rdatasets SETUP.PY
+# THIS FILE IS GENERATED FROM rdatasets SETUP.PY
 short_version = '0.1.0'
 version = '0.1.0'
 full_version = '0.1.0'
