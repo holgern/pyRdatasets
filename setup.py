@@ -92,7 +92,7 @@ if __name__ == '__main__':
     write_version_py()
     
     setup(
-        name="pyRdatasets",
+        name="rdatasets",
         maintainer="Holger Nahrstaedt",
         maintainer_email="holger@nahrstaedt.de",
         url="https://github.com/holgern/pyRdatasets",
