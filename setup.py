@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     # Rewrite the version file everytime
     write_version_py()
-            
+    
     setup(
         name="pyRdatasets",
         maintainer="Holger Nahrstaedt",
@@ -99,6 +99,7 @@ if __name__ == '__main__':
         license="GPLv3",
         description="package that provides over 1000 datasets from various R packages",
         long_description=open('README.md').read(),
+        long_description_content_type='text/markdown',
         keywords=["rdatasets", "datasets"],
         classifiers=[
             "Development Status :: 4 - Beta",
