@@ -13,8 +13,8 @@ from distutils.sysconfig import get_python_inc
 
 MAJOR = 0
 MINOR = 1
-MICRO = 0
-ISRELEASED = True
+MICRO = 1
+ISRELEASED = False
 VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 # Return the git revision as a string
