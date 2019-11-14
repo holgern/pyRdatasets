@@ -3,7 +3,8 @@ pyRdatasets is a collection of 1300 datasets taken from https://github.com/vince
 The datasets were extracted from various R packages and stored as gzip packed pickle files in pandas DataFrame structure.
 A description to each dataset can be found here: http://vincentarelbundock.github.io/Rdatasets/datasets.html
 
-The package has a size around 25 Mb.
+
+All 1300 data records are already included in the package (no internet connection necessary), which has a size around 25 Mb.
 
 ## Installation
 ```
