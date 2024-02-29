@@ -27,16 +27,12 @@ def items(package='datasets'):
         package name (default='datasets')
     """
     data_dir = os.path.join(os.path.dirname(__file__), '_data')
-    sets = []
-    try:
-        sets = os.listdir(os.path.join(data_dir, package))
-    except:
-        print("Package %s does not exists." % package)
+    package_dir = os.path.join(data_dir, package)
+    if not os.path.exists(package_dir):
+        print("Package %s does not exist." % package)
         print("Did you mean: %s" % str(packages()))
-    ret = []
-    for set in sets:
-        ret.append(os.path.basename(set).split('.')[0])
-    return ret
+        return []
+    return [os.path.splitext(e)[0] for e in os.listdir(package_dir)]
 
 
 def data(package, item=None):
@@ -52,19 +48,25 @@ def data(package, item=None):
         package = "datasets"
 
     data_dir = os.path.join(os.path.dirname(__file__), '_data')
-    data_package_dir = os.path.join(data_dir, package)
-    if not os.path.isdir(data_package_dir):
-        print("Which package did you mean: %s?" % str(packages()))
+    package_dir = os.path.join(data_dir, package)
+    data_path = os.path.join(package_dir, f'{item}.pkl.compress')
+
+    if not os.path.exists(package_dir):
+        print(f"Package {package} does not exist.")
+        print("Available packages: %s" % str(packages()))
         return None
-    data_path = os.path.join(
-        os.path.join(data_dir, package), '%s.pkl.compress' % (item)
-    )
+
+    if not os.path.exists(data_path):
+        print(f"Item {item} does not exist in package {package}.")
+        print("Available items: %s" % str(items(package)))
+        return None
+
     try:
-        df = pd.read_pickle(data_path, compression='gzip')
+        df = pd.read_pickle(data_path, compression='xz')
         return df
-    except:
-        print("Could not read {}/{}".format(package, item))
-        print("Which item did you mean: %s?" % str(items(package)))
+    except Exception as e:
+        print(f"Could not read {package}/{item} due to {e}")
+        return None
 
 
 def descr(package, item=None):
@@ -80,22 +82,19 @@ def descr(package, item=None):
         package = "datasets"
 
     data_dir = os.path.join(os.path.dirname(__file__), '_data')
-    data_package_dir = os.path.join(data_dir, package)
-    if not os.path.isdir(data_package_dir):
-        print("Which package did you mean: %s?" % str(packages()))
-        return None
     data_path = os.path.join(data_dir, 'descr.pickle')
+
     try:
         with open(data_path, 'rb') as handle:
             descr = pickle.load(handle)
-        return descr[package][item]
-    except:
-        print("Could not read {}/{}".format(package, item))
-        print("Which item did you mean: %s?" % str(items(package)))
+        return descr.get(package, {}).get(item)
+    except Exception as e:
+        print(f"Could not read {package}/{item} due to {e}")
+        return None
 
 
 def get_data_path():
-    """Returns the data path of the gzip compressed pickle objects."""
+    """Returns the data path of the xz compressed pickle objects."""
     return os.path.join(os.path.dirname(__file__), '_data')
 
 
@@ -103,8 +102,10 @@ def summary():
     """Returns a Dataframe table of all included datasets."""
     data_dir = os.path.join(os.path.dirname(__file__), '_data')
     data_path = os.path.join(data_dir, 'datasets.pkl.compress')
+
     try:
-        df = pd.read_pickle(data_path, compression='gzip')
+        df = pd.read_pickle(data_path, compression='xz')
         return df
-    except:
-        print("Could not read summary")
+    except Exception as e:
+        print(f"Could not read summary: {e}")
+        return None

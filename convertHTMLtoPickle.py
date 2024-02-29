@@ -1,6 +1,5 @@
 import os
 import pickle
-from os.path import expanduser
 
 import html2text
 import pandas as pd
@@ -15,13 +14,11 @@ if __name__ == '__main__':
         row = datasets.iloc[i]
         package = row["Package"]
         item = row["Item"].split(" ")[0]
-        print("{} - {}".format(package, item))
+        print(f"{package} - {item}")
         if package not in descr:
             descr[package] = {}
 
-        html_file = os.path.join(
-            data_dir, "doc//{}//{}.html".format(package, item)
-        )
+        html_file = os.path.join(data_dir, f"doc//{package}//{item}.html")
         with open(html_file, encoding="utf8") as f:
             content = f.read().splitlines()
         descr[package][item] = html2text.html2text('\n'.join(content))

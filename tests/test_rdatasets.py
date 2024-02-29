@@ -1,8 +1,7 @@
 import unittest
 
-import pytest
+from rdatasets import data, descr, get_data_path, items, packages, summary
 
-from rdatasets import data, descr, summary, packages, items, get_data_path
 
 class TestWrapper(unittest.TestCase):
     def test_iris_dataset(self):
@@ -25,7 +24,7 @@ class TestWrapper(unittest.TestCase):
         self.assertTrue(len(get_data_path()) > 0)
 
     def test_packages(self):
-        self.assertTrue(len(get_data_path()) > 0)
+        self.assertTrue(len(packages()) > 0)
 
     def test_items(self):
         i = items("forecast")
