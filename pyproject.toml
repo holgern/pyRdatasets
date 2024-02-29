@@ -10,8 +10,7 @@ include-package-data = true
 where = ["rdatasets"]
 
 [tool.setuptools.package-data]
-rdatasets = ["*.compress", "*.pickle"]
-"rdatasets._data" = ["*.compress", "*.pickle"]
+"*" = ["*.compress", "*.pickle"]
 
 [project]
 name = "rdatasets"

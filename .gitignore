@@ -25,3 +25,4 @@ pip-log.txt
 *.wpu
 *.wpr
 .pypirc
+rdatasets/_version.py

@@ -7,8 +7,6 @@ import pickle
 
 import pandas as pd
 
-__all__ = ['packages', 'items', 'data', 'get_data_path', 'descr', 'summary']
-
 
 def packages():
     """Show all package names."""
