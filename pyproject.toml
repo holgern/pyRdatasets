@@ -4,7 +4,14 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["rdatasets"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["rdatasets"]
+
+[tool.setuptools.package-data]
+rdatasets = ["*.compress", "*.pickle"]
+"rdatasets._data" = ["*.compress", "*.pickle"]
 
 [project]
 name = "rdatasets"
