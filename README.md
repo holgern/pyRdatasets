@@ -1,10 +1,10 @@
 # pyRdatasets
-pyRdatasets is a collection of 1300 datasets taken from https://github.com/vincentarelbundock/Rdatasets. 
+pyRdatasets is a collection of 2264 datasets taken from https://github.com/vincentarelbundock/Rdatasets.
 The datasets were extracted from various R packages and stored as gzip packed pickle files in pandas DataFrame structure.
 A description to each dataset can be found here: http://vincentarelbundock.github.io/Rdatasets/datasets.html
 
 
-All 1300 data records are already included in the package (no internet connection necessary), which has a size around 25 Mb.
+All 2264 data records are already included in the package (no internet connection necessary), which has a size around 25 Mb.
 
 ## Installation
 ```
@@ -62,5 +62,42 @@ from rdatasets import summary
 summary()
 ```
 
-## Thanks to 
+## Thanks to
 The archive of datasets distributed with R: of https://github.com/vincentarelbundock/Rdatasets
+
+
+## Pre-commit-config
+
+### Installation
+
+```
+$ pip install pre-commit
+```
+
+### Using homebrew:
+```
+$ brew install pre-commit
+```
+
+```
+$ pre-commit --version
+pre-commit 2.10.0
+```
+
+### Install the git hook scripts
+
+```
+$ pre-commit install
+```
+
+### Run against all the files
+```
+pre-commit run --all-files
+pre-commit run --show-diff-on-failure --color=always --all-files
+```
+
+### Update package rev in pre-commit yaml
+```bash
+pre-commit autoupdate
+pre-commit run --show-diff-on-failure --color=always --all-files
+```

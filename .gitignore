@@ -25,16 +25,3 @@ pip-log.txt
 *.wpu
 *.wpr
 .pypirc
-
-# Project working files
-_edflib.[ch]
-_pyedflib.[ch]
-
-edf.[ch]
-cythonize.dat
-pyedflib/__config__.py
-pyedflib/version.py
-build.log
-
-# Generated test files
-pyedflib/tests/data/tmp_*

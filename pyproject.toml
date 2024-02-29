@@ -1,0 +1,53 @@
+
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rdatasets"]
+
+[project]
+name = "rdatasets"
+authors = [
+  { name="Holger Nahrstaedt", email="nahrstaedt@gmail.com" },
+]
+description = "provides over 2264 datasets as pandas dataframe from various R packages"
+keywords = ["rdatasets", "datasets"]
+urls = { Homepage = "https://github.com/holgern/pyRdatasets" }
+readme = "README.md"
+requires-python = ">3.7.0"
+dependencies = [
+    "pandas"
+]
+license = {file = "LICENSE"}
+classifiers=[
+    'Intended Audience :: Developers',
+    'Intended Audience :: Education',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+]
+
+dynamic=["version"]
+
+[tool.setuptools_scm]
+write_to = "rdatasets/_version.py"
+
+[tool.tox]
+legacy_tox_ini = """
+
+[testenv]
+deps =
+    pytest
+    pytest-cov[all]
+    pandas
+commands =
+    pytest
+"""

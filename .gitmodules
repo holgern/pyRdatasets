@@ -1,0 +1,3 @@
+[submodule "rdatasets_orig"]
+	path = rdatasets_orig
+	url = https://github.com/vincentarelbundock/Rdatasets.git
