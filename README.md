@@ -1,6 +1,7 @@
 # pyRdatasets
 [![PyPi Version](https://img.shields.io/pypi/v/rdatasets.svg)](https://pypi.python.org/pypi/rdatasets/)
-
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/rdatasets/badges/version.svg)](https://anaconda.org/conda-forge/rdatasets)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/rdatasets/badges/downloads.svg)](https://anaconda.org/conda-forge/rdatasets)
 
 pyRdatasets is a collection of 2264 datasets taken from https://github.com/vincentarelbundock/Rdatasets.
 The datasets were extracted from various R packages and stored as gzip packed pickle files in pandas DataFrame structure.
@@ -12,6 +13,10 @@ All 2264 data records are already included in the package (no internet connectio
 ## Installation
 ```
 pip install rdatasets
+```
+or
+```
+conda install conda-forge::rdatasets
 ```
 
 ## Usage
