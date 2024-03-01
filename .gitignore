@@ -26,3 +26,4 @@ pip-log.txt
 *.wpr
 .pypirc
 rdatasets/_version.py
+.eggs
