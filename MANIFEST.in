@@ -1,24 +1,17 @@
-include setup.py
 include README.md
 include LICENSE
 include *.txt
-include MANIFEST.in
 
 # All source files
 recursive-include rdatasets *
 
-# Add build and testing tools
-include pytest.ini
-
 # Exclude what we don't want to include
-prune build
-prune dist
-prune doc/build
-prune util
-prune */__pycache__
-prune rdatasets_orig
-prune convertCSVtoPickle.py
-prune convertHTMLtoPickle.py
-
-global-exclude *.py[cod] *.egg *.egg-info
-global-exclude *~ *.bak *.swp
+exclude .gitignore
+exclude .gitmodules
+exclude .pre-commit-config.yaml
+exclude .flake8
+recursive-exclude */__pycache__
+recursive-exclude * *.py[co]
+prune rdatasets_orig/
+exclude convertCSVtoPickle.py
+exclude convertHTMLtoPickle.py

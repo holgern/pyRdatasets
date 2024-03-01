@@ -5,4 +5,17 @@
 from .rdatasets import data, descr, get_data_path, items, packages, summary
 
 
-__all__ = ['packages', 'items', 'data', 'get_data_path', 'descr', 'summary']
+__all__ = [
+    'packages',
+    'items',
+    'data',
+    'get_data_path',
+    'descr',
+    'summary',
+    '__version__',
+]
+
+try:
+    from ._version import version as __version__
+except ImportError:
+    __version__ = "unknown"
