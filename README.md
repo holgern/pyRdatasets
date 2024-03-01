@@ -1,4 +1,7 @@
 # pyRdatasets
+[![PyPi Version](https://img.shields.io/pypi/v/rdatasets.svg)](https://pypi.python.org/pypi/rdatasets/)
+
+
 pyRdatasets is a collection of 2264 datasets taken from https://github.com/vincentarelbundock/Rdatasets.
 The datasets were extracted from various R packages and stored as gzip packed pickle files in pandas DataFrame structure.
 A description to each dataset can be found here: http://vincentarelbundock.github.io/Rdatasets/datasets.html
@@ -14,8 +17,8 @@ pip install rdatasets
 ## Usage
 
 ```
->>> from rdatasets import data
->>> dataset = data("iris")
+>>> import rdatasets
+>>> dataset = rdatasets.data("iris")
 >>> dataset
      Sepal.Length  Sepal.Width  Petal.Length  Petal.Width    Species
 0             5.1          3.5           1.4          0.2     setosa
@@ -31,10 +34,10 @@ pip install rdatasets
 149           5.9          3.0           5.1          1.8  virginica
 
 [150 rows x 5 columns]
->>> data("forecast", "co2")
+>>> rdatasets.data("forecast", "co2")
 Could not read forecast/co2
 Which item did you mean: ['gas', 'gold', 'taylor', 'wineind', 'woolyrnq']?
->>> data("forecast", "gas")
+>>> rdatasets.data("forecast", "gas")
             time  value
 0    1956.000000   1709
 1    1956.083333   1646
@@ -53,13 +56,13 @@ Which item did you mean: ['gas', 'gold', 'taylor', 'wineind', 'woolyrnq']?
 
 The dataset description can be printed by:
 ```
-from rdatasets import data, descr
-print(descr("iris"))
+import rdatasets
+print(rdatasets.descr("iris"))
 ```
 A summary of all datasets is available as DataFrame object:
 ```
-from rdatasets import summary
-summary()
+import rdatasets
+rdatasets.summary()
 ```
 
 ## Thanks to
