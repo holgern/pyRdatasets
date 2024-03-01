@@ -8,7 +8,7 @@ The datasets were extracted from various R packages and stored as gzip packed pi
 A description to each dataset can be found here: http://vincentarelbundock.github.io/Rdatasets/datasets.html
 
 
-All 2264 data records are already included in the package (no internet connection necessary), which has a size around 25 Mb.
+All 2264 data records are already included in the package (no internet connection necessary), which has a size around 40 Mb.
 
 ## Installation
 ```
